@@ -4,6 +4,7 @@
 */
 
 import { ConfigStorage } from "../utils/config-storage.ts";
+import { Strategies } from "./resolvers/strategies.ts";
 
 interface NavbarConfig {
   id: string;
@@ -21,7 +22,11 @@ export interface AppConfig {
   name: string;
   path: string;
   app: string;
-  assetsMap: Record<string, string>;
+
+  resolver: {
+    strategy: keyof Strategies;
+    strategyConfig: Strategies[keyof Strategies];
+  }
   artifacts: string[];
   navbar: NavbarConfig[];
   proxy: ProxyConfig[];

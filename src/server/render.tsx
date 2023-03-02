@@ -14,9 +14,7 @@ type TemplateProps = {
 }
 
 export async function retrieveApp(appPath: string) {
-  //TODO: Remove this later on and resolve inside the AppRegistry
-  const path = `../../${appPath}`;
-  return import(path);
+  return import(appPath);
 }
 
 export async function bootstrapJS(mfeId: string) {
@@ -24,11 +22,13 @@ export async function bootstrapJS(mfeId: string) {
 }
 
 export async function render(
+  serverUrl: string,
+  assetsMap: Record<string, string>,
   appConfig: AppConfig
 ): Promise<ReactDOMServerReadableStream> {
-  const { default: App } = await retrieveApp(appConfig.app);
+  const { default: App } = await retrieveApp(serverUrl);
   const mfeContext = {
-    assetsMap: appConfig.assetsMap,
+    assetsMap: assetsMap,
     scripts: appConfig.artifacts.filter((artifact) => artifact.endsWith('js') && artifact !== 'index.js'),
     styles: appConfig.artifacts.filter((artifact) => artifact.endsWith('css')), 
     title: appConfig.name,
@@ -36,7 +36,7 @@ export async function render(
 
   const stream = await renderToReadableStream(<App context={mfeContext} />, {
     bootstrapScriptContent: `window.MfeContext = ${JSON.stringify(mfeContext)}`,
-    bootstrapModules: [appConfig.assetsMap[appConfig.artifacts[0]]],
+    bootstrapModules: [assetsMap[appConfig.artifacts[0]]],
   });
 
   return stream;
