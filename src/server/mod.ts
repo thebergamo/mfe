@@ -1,3 +1,4 @@
+import { ResolverFactory } from "./app-resolve-factory.ts";
 import { AppConfig } from "./apps-registry.ts";
 import { Hono, serveStatic } from "./deps.ts";
 import { bootstrapJS, render, retrieveApp } from "./render.tsx";
@@ -9,30 +10,39 @@ APIs to support:
 - server static?
 */
 
+const resolverFactory = new ResolverFactory();
+
+const appConfig: AppConfig = {
+  id: "mfe-2",
+  name: "MFE 2 - yo",
+  path: "mfe-2",
+  app: "examples/mfe-2/dist/server/entry-server.js",
+  artifacts: [
+    "index.js",
+    "index.css",
+  ],
+  resolver: {
+    strategy: 'fs',
+    strategyConfig: { baseDir: 'examples/mfe-2/dist/' }
+  },
+  navbar: [],
+  proxy: [],
+};
+
+function getResolver(appConfig: AppConfig) {
+  const { strategy, strategyConfig } = appConfig.resolver;
+  return resolverFactory.getResolver(strategy, strategyConfig);
+}
+
 const app = new Hono();
 
 app.get("/", (c) => c.text("Hello MFE"));
 
 app.get("/:mfeId", async () => {
-  const appConfig: AppConfig = {
-    id: "mfe-2",
-    name: "MFE 2 - yo",
-    path: "mfe-2",
-    app: "examples/mfe-2/dist/server/entry-server.js",
-    assetsMap: {
-      "react.svg": "mfe-2/examples/mfe-2/dist/client/mfe-2/react.svg",
-      "vite.svg": "mfe-2/examples/mfe-2/dist/client/mfe-2/vite.svg",
-      "index.css": "mfe-2/examples/mfe-2/dist/client/mfe-2/index.css",
-      "index.js": "mfe-2/examples/mfe-2/dist/client/assets/index-4b2b66a0.js"
-    },
-    artifacts: [
-      "index.js",
-      "index.css",
-    ],
-    navbar: [],
-    proxy: [],
-  };
-  const appStream = await render(appConfig);
+  const resolver = getResolver(appConfig);
+  const assetsMap = await resolver.getAssetMap();
+
+  const appStream = await render(resolver.getServerUrl(), assetsMap, appConfig);
 
   return new Response(appStream, {
     headers: { "content-type": "text/html" },
@@ -41,11 +51,20 @@ app.get("/:mfeId", async () => {
 
 app.get("/:mfeId/*", (ctx, ...rest) => {
   const { mfeId } = ctx.req.param();
+
+  const resolver = getResolver(appConfig);
+
   const [_, _mfeId, ...asset] = new URL(ctx.req.url).pathname.split("/");
   const assetPath = asset.join("/");
   console.debug(assetPath);
 
-  const r = serveStatic({ path: assetPath });
+  const assetUrl = resolver.getAssetUrl(assetPath);
+
+  console.log(assetUrl);
+
+  // TODO check if assetUrl is relative path, if is, serve static, if is http then redirect
+
+  const r = serveStatic({ path: assetUrl, root: '/' });
 
   return r(ctx, ...rest);
 });

@@ -62,15 +62,16 @@ function assetsMapPlugin({ prefix }: { prefix: string }): Plugin {
 export default defineConfig({
   plugins: [
     react(),
-    assetsMapPlugin({ prefix: "mfe-2/examples/mfe-2/dist/client" }),
+    assetsMapPlugin({ prefix: "mfe-2" }),
   ],
+  base: '/mfe-2/',
   build: {
     minify: false,
-    rollupOptions: {
-      output: {
-        assetFileNames: "mfe-2/[name][extname]",
-      },
-    },
+    // rollupOptions: {
+    //   output: {
+    //     assetFileNames: "mfe-2/[name][extname]",
+    //   },
+    // },
   },
   ssr,
 });
