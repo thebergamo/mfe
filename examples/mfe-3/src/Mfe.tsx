@@ -24,7 +24,7 @@ export function Mfe({
         ))}
       </head>
       <body>
-        <main>
+        <main id="root">
           <div id="stage">{children}</div>
         </main>
         {scripts?.map((script) => (

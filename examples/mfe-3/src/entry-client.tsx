@@ -1,10 +1,11 @@
 import ReactDOM from "react-dom/client";
 import { Mfe, MfeContext } from "./Mfe";
 import { App } from "./App";
+import "./index.css";
 
 declare global {
   interface Window {
-    MfeContext: MfeContext
+    MfeContext: MfeContext;
   }
 }
 
