@@ -3,8 +3,8 @@
     - receive a storage implementation
 */
 
-import { ConfigStorage } from "../utils/config-storage.ts";
-import { Strategies } from "./resolvers/strategies.ts";
+import { ResolverStrategies } from "./resolvers/strategies.ts";
+import { ConfigStorage } from "./storages/config-storage.ts";
 
 interface NavbarConfig {
   id: string;
@@ -24,9 +24,9 @@ export interface AppConfig {
   app: string;
 
   resolver: {
-    strategy: keyof Strategies;
-    strategyConfig: Strategies[keyof Strategies];
-  }
+    strategy: keyof ResolverStrategies;
+    strategyConfig: ResolverStrategies[keyof ResolverStrategies];
+  };
   artifacts: string[];
   navbar: NavbarConfig[];
   proxy: ProxyConfig[];

@@ -12,7 +12,6 @@ export function Mfe({
   context: { assetsMap, styles, scripts, title },
   children,
 }: Props) {
-  console.log(assetsMap, styles, scripts);
   return (
     <html>
       <head>

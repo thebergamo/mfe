@@ -1,28 +1,32 @@
 import { AppResolver } from "../app-resolver.ts";
 import { resolve, join, relative } from "../deps.ts";
+import { CommonAppResolverConfig } from "./strategies.ts";
 
-export interface FileSystemAppResolverConfig {
+export interface FileSystemAppResolverConfig extends CommonAppResolverConfig {
   baseDir: string;
 }
 
 export class FileSystemAppResolver implements AppResolver {
-  private baseDir: string;
+  #baseDir: string;
+
   constructor(private config: FileSystemAppResolverConfig) {
-    this.baseDir = resolve(Deno.cwd(), config.baseDir);
+    this.#baseDir = resolve(Deno.cwd(), config.baseDir);
   }
 
-  getAssetMap(): Promise<Record<string, string>> {
-    return import(join(this.baseDir, "client", "assetsMap.json"), { assert: { type: "json" } }) as Promise<
-      Record<string, string>
-    >;
+  async getAssetMap(): Promise<Record<string, string>> {
+    const { default: assetsMap } = await import(
+      join(this.#baseDir, this.config.assetsMap),
+      { assert: { type: "json" } }
+    );
+
+    return assetsMap;
   }
 
   getServerUrl(): string {
-    // name of the file could be set as the resolver config as well
-    return join(this.baseDir, "server", "entry-server.js");
+    return join(this.#baseDir, this.config.entryServer);
   }
 
   getAssetUrl(relativePath: string): string {
-      return relative(Deno.cwd(), join(this.baseDir, 'client', relativePath));
+    return relative(Deno.cwd(), join(this.#baseDir, "client", relativePath));
   }
 }
