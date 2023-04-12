@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65a2b708-61f0-4eb6-b13d-dd85a61c5a1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mfe.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0f011856c78dac90f46a9a7e8b234430d012690d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e295042f875c3ce8dcbad7cea2fdb4587337c2d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b340ce7a74e20c903797e9ca2a7bfbe33465b35" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/6/3684b6e407c1326d6c693fa20a827d6ac92ab2a5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/9/7927c4b116ae003bdc61742fd3811fee1b0adbb7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c647cc90532ac90890b55ac01b79dff5247a70f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a07cb78c2251aea5e0727d2f58b0e4e862c11e30" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a292e14536f9b00b407270190fca90114be092b3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b38817d7eb8e8bac817863565970a82885685247" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/4/b499a488014fdfc456227c109e7b8c7e19888b8d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/1/d1f6992845d85954f76304ad0455a224203cb907" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/6/e6dd771deed822e0890303af583432dfdf501112" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/a/eab8bd73eb37450fb1e4e1d1834408ce0276396f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f4d6585589c4352575beae0e0f28746519d50404" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/.eslintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/.prettierrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/.storybook/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/.storybook/preview.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/postcss.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/public/vite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/assets/react.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/Header.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/MainNav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/MobileNav.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Icons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/MfeTemplate.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Navigation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/User/UserStatus.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/User/UserStatus.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/Avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/DropDownMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/NavigationMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/Popover.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui/ScrollArea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/hooks/useMfeContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Button.story.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Introduction.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Page.story.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/code-brackets.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/colors.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/comments.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/direction.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/flow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/plugin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/repo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/stackalt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/vite-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tailwind.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/vite.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/pnpm-workspace.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectId" id="2OEIVZJ7S7brTMyEdXFKExyCKLy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;experimental&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/marcosbergamo/Workspace/personal/mfe/demo/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/marcosbergamo/Workspace/personal/mfe/examples/mfe-1/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header" />
+      <recent name="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65a2b708-61f0-4eb6-b13d-dd85a61c5a1b" name="Changes" comment="" />
+      <created>1681119341400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681119341400</updated>
+      <workItem from="1681119347823" duration="23566000" />
+      <workItem from="1681211530156" duration="312000" />
+      <workItem from="1681211868160" duration="319000" />
+      <workItem from="1681212284598" duration="13949000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
