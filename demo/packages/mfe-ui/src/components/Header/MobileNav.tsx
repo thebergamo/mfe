@@ -31,7 +31,7 @@ export function MobileNav(props: NavProps) {
         align="start"
         sideOffset={24}
         alignOffset={4}
-        className="w-[300px] bg-primary-600 dark:bg-primary-700"
+        className="w-[300px] bg-primary-600 dark:bg-primary-700 z-50"
       >
         <DropdownMenuItem asChild>
           <UserStatus user={props.user} />

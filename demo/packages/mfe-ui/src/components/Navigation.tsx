@@ -1,7 +1,3 @@
-function MenuItems() {
-  return <>HI</>
-}
-
 type NavLink = {
   label: string
   href: string

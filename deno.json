@@ -2,7 +2,7 @@
   "lock": false,
   "tasks": {
     "test": "deno test -A",
-    "dev": "deno run -A cli.ts"
+    "dev": "deno run -A cli.ts --watch"
   },
   "importMap": "./.vscode/import_map.json"
 }

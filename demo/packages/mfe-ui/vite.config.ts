@@ -1,31 +1,58 @@
 import react from '@vitejs/plugin-react-swc'
-import Path from 'node:path'
-import * as path from 'path'
+import * as Path from 'path'
 import { defineConfig } from 'vite'
-
+import dts from 'vite-plugin-dts'
+// @ts-ignore
+import { dependencies, peerDependencies } from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), dts({ insertTypesEntry: true })],
   build: {
+    minify: false,
     sourcemap: true,
     lib: {
-      entry: Path.resolve(__dirname, 'src/index.ts'),
-      name: 'MFE-UI',
-      formats: ['es'],
+      entry: {
+        comps: Path.resolve(__dirname, 'src/index.ts'),
+        plugin: Path.resolve(__dirname, 'src/lib/vite.plugins.ts'),
+      },
+      name: 'mfe-ui',
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
+      external: [
+        ...Object.keys(peerDependencies),
+        ...Object.keys(dependencies),
+        /^node:.*$/,
+        'react/jsx-runtime',
+      ],
+      output: [
+        {
+          esModule: true,
+          exports: 'named',
+          format: 'es',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            'react/jsx-runtime': 'react/jsx-runtime',
+          },
         },
-      },
+        {
+          exports: 'named',
+          format: 'cjs',
+          // inlineDynamicImports: true,
+          interop: 'auto',
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            'react/jsx-runtime': 'react/jsx-runtime',
+          },
+        },
+      ],
     },
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': Path.resolve(__dirname, './src'),
+      '@tailwind': Path.resolve(__dirname, './tailwind.config.cjs'),
     },
   },
 })

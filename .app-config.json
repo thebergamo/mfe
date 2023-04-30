@@ -1,4 +1,22 @@
-[{
+[
+  {
+    "id": "mfe-1",
+    "name": "MFE 1 - yo",
+    "path": "mfe-1",
+    "app": "demo/apps//mfe-1/dist/server/entry-server.js",
+    "artifacts": ["index.js", "index.css"],
+    "resolver": {
+      "strategy": "fs",
+      "strategyConfig": {
+        "baseDir": "demo/apps/mfe-1/dist/",
+        "entryServer": "/server/entry-server.js",
+        "assetsMap": "/client/assetsMap.json"
+      }
+    },
+    "navbar": [],
+    "proxy": []
+  },
+  {
   "id": "mfe-3",
   "name": "MFE 3 - amazing",
   "path": "mfe-3",
@@ -14,7 +32,8 @@
   },
   "navbar": [],
   "proxy": []
-}, {
+},
+  {
   "id": "mfe-2",
   "name": "MFE 2 - yo",
   "path": "mfe-2",

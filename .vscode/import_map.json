@@ -6,9 +6,13 @@
 
       "$x/": "https://deno.land/x/",
 
-      "react": "https://esm.sh/react@18.2.0",
-      "react/": "https://esm.sh/react@18.2.0/",
-      "react-dom": "https://esm.sh/react-dom@18.2.0",
-      "react-dom/": "https://esm.sh/react-dom@18.2.0/"
+      "react": "https://esm.sh/react@18.2.0&dev",
+      "react/": "https://esm.sh/react@18.2.0&dev/",
+      "react-dom": "https://esm.sh/react-dom@18.2.0$dev",
+      "react-dom/": "https://esm.sh/react-dom@18.2.0&dev/",
+      "twind": "https://esm.sh/twind@0.16.19",
+      "twind/": "https://esm.sh/twind@0.16.19/",
+      "react-router-dom": "https://esm.sh/react-router-dom@6.10.0&dev",
+      "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&dev/"
     }
   }

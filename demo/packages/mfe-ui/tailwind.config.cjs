@@ -89,4 +89,7 @@ module.exports = {
     typography: ['dark'],
   },
   plugins: [],
+  corePlugins: {
+    preflight: false
+  },
 }

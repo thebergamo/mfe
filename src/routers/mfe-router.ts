@@ -3,13 +3,13 @@ import { AppResolver } from "../server/app-resolver.ts";
 import { AppConfig } from "../server/apps-registry.ts";
 import {
   Hono,
-  serveStatic,
-  HTTPException,
-  HonoTypes,
   HonoContext,
+  HonoTypes,
+  HTTPException,
+  serveStatic,
 } from "../server/deps.ts";
-import { render } from "../server/render.tsx";
 import { AppOptions } from "../server/mod.ts";
+import { render } from "../server/render.tsx";
 import { getLogger } from "../utils/logger.ts";
 
 const logger = getLogger("MfeRouter");
@@ -23,6 +23,7 @@ const decorateStorage =
   (storage: AppOptions["storage"]) =>
   async (ctx: HonoContext, next: HonoTypes.Next) => {
     console.info("INCOMING", ctx.req.url);
+
     const { mfeId } = ctx.req.param() as { mfeId: string };
     console.log({ mfeId });
     try {
@@ -59,6 +60,7 @@ export function createMfeRouter(
     const assetsMap = await resolver.getAssetMap();
 
     const appStream = await render(
+      ctx.req,
       resolver.getServerUrl(),
       assetsMap,
       appConfig

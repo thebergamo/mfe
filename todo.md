@@ -13,6 +13,7 @@
 
 
 (A) How to implement data fetch from the MFEs to fetch on server +Design
+- Use React Router data loaders (integrated already)
 
 (A) Design simple communication between MFEs +Design
 
