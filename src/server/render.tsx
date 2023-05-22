@@ -1,40 +1,40 @@
-import React from "react";
 import {
+  React,
   ReactDOMServerReadableStream,
   renderToReadableStream,
-  renderToString,
-} from "react-dom/server";
-import {
   createStaticHandler,
   createStaticRouter,
   StaticRouterProvider,
-} from "react-router-dom/server";
-import * as twind from "twind";
-import * as twindSheets from "twind/sheets";
+  RouteObject,
+  HonoRequest,
+  twind,
+  twindSheets,
+} from "../../deps.ts";
 import { AppConfig } from "./apps-registry.ts";
 
 export function retrieveApp(appPath: string) {
-  return import(appPath);
+  try {
+    return import(appPath);
+  } catch (err) {
+    console.log("IMPORT ERROR", err);
+    throw err;
+  }
 }
 
 const sheet = twindSheets.virtualSheet();
 twind.setup({ sheet });
 
-function extractCss(App) {
-  sheet.reset();
+async function createRouterContext(req: HonoRequest, routes: RouteObject[]) {
+  const handler = createStaticHandler(routes, { basename: "/mfe-1" });
 
-  const body = renderToString(App);
+  const context = await handler.query(req.raw);
 
-  const styleTag = twindSheets.getStyleTag(sheet);
+  if ("ok" in context) {
+    // in this case we have a response
+    return { response: context };
+  }
 
-  return styleTag;
-}
-
-async function createRouterContext(req, routes) {
-  let handler = createStaticHandler(routes, { basename: "/mfe-1" });
-
-  let context = await handler.query(req);
-  let router = createStaticRouter(handler.dataRoutes, context);
+  const router = createStaticRouter(handler.dataRoutes, context);
 
   return {
     context,
@@ -42,13 +42,14 @@ async function createRouterContext(req, routes) {
   };
 }
 export async function render(
-  req,
+  req: HonoRequest,
   serverUrl: string,
   assetsMap: Record<string, string>,
   appConfig: AppConfig
-  // @ts-ignore
-): Promise<ReactDOMServerReadableStream> {
+): Promise<ReactDOMServerReadableStream | Response> {
+  console.log("trying to retrieve app");
   const { default: App, routes } = await retrieveApp(serverUrl);
+  console.log("RETRIEVED APP");
   const mfeContext = {
     assetsMap: assetsMap,
     scripts: appConfig.artifacts.filter(
@@ -56,11 +57,16 @@ export async function render(
     ),
     styles: appConfig.artifacts.filter((artifact) => artifact.endsWith("css")),
     title: appConfig.name,
+    menu: appConfig.navbar,
     id: appConfig.id,
     routerHydration: {},
   };
 
-  const { context, router } = await createRouterContext(req, routes);
+  const { context, router, response } = await createRouterContext(req, routes);
+
+  if (response) {
+    return response;
+  }
 
   console.log({ context });
   mfeContext.routerHydration = {

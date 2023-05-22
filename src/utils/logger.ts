@@ -1,13 +1,13 @@
-import { log } from "../server/deps.ts";
+import { log } from "../../deps.ts";
 
 type LogLevel = "INFO" | "NOTSET" | "DEBUG" | "WARNING" | "ERROR" | "CRITICAL";
 
 export async function setupLogger() {
-  const logLevel = Deno.env.get("MFE_LOG_LEVEL") || "INFO";
+  // const logLevel = Deno.env.get("MFE_LOG_LEVEL") || "INFO";
 
   await log.setup({
     handlers: {
-      console: new log.handlers.ConsoleHandler(logLevel as LogLevel),
+      console: new log.handlers.ConsoleHandler("INFO"),
     },
 
     loggers: {
@@ -19,7 +19,35 @@ export async function setupLogger() {
 }
 
 export function getLogger(module: string) {
-  return new Logger(`mfe-${module}`);
+  return new ConsoleLogger(`mfe-${module}`);
+}
+
+export class ConsoleLogger {
+  #loggerName: string;
+
+  constructor(module: string) {
+    this.#loggerName = module;
+  }
+
+  info(message: string) {
+    console.log(`[INFO][${this.#loggerName}] ${message}`);
+  }
+
+  warn(message: string) {
+    console.log(`[WARN][${this.#loggerName}] ${message}`);
+  }
+
+  debug(message: string) {
+    console.log(`[DEBUG][${this.#loggerName}] ${message}`);
+  }
+
+  error(message: string) {
+    console.log(`[ERROR][${this.#loggerName}] ${message}`);
+  }
+
+  critical(message: string) {
+    console.log(`[CRITICAL][${this.#loggerName}] ${message}`);
+  }
 }
 
 class Logger {

@@ -2,7 +2,8 @@
   "lock": false,
   "tasks": {
     "test": "deno test -A",
-    "dev": "deno run -A cli.ts --watch"
+    "dev": "deno run -A --unstable cli.ts -s -c ./.app-config.json -p 3000",
+    "cf": "denoflare2 serve mfe"
   },
   "importMap": "./.vscode/import_map.json"
 }

@@ -9,7 +9,7 @@ export default defineConfig({
     include: ['mfe-ui'],
   },
   build: {
-    minify: false,
+    // minify: true,
     commonjsOptions: {
       include: [/mfe-ui/, /node_modules/],
     },
@@ -17,10 +17,10 @@ export default defineConfig({
   // @ts-ignore
   plugins: [react(), assetsMapPlugin({ prefix: 'mfe-1' })],
   base: '/mfe-1/',
-  // @ts-ignore
-  // ssr: ssrConfig(),
   ssr: {
-    external: ['react', 'react-dom', 'react-router-dom', 'react/jsx-runtime'],
+    // external: ['react', 'react-dom', 'react-router-dom', 'react/jsx-runtime'],
     target: 'webworker',
+    format: 'esm',
+    noExternal: true,
   },
 })

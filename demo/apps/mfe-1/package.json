@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && npm run build:client && npm run build:server",
-    "build:client": "vite build --outDir dist/client --mode development",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx  --mode development",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -22,3 +22,9 @@
 (B) Make MFEs with multi page +Example
 
 (C) Create adapters for CloudFlare Workers (maybe workers.ts file?) +Providers
+
+---
+- Instalation Script for the binary (download from github and make it available in PATH)
+- Deploy
+- Create scaffold to be used in degit.
+- 

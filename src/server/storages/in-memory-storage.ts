@@ -1,6 +1,7 @@
+import { resolve } from "../../../deps.ts";
 import { getLogger } from "../../utils/logger.ts";
+import { readCacheFile } from "../../utils/read-cache-file.ts";
 import { AppConfig } from "../apps-registry.ts";
-import { resolve } from "../deps.ts";
 import { ConfigStorage } from "./config-storage.ts";
 
 const logger = getLogger("InMemoryConfigStorage");
@@ -23,16 +24,15 @@ export class InMemoryConfigStorage implements ConfigStorage<AppConfig> {
         throw new Error("CachePath not provided");
       }
 
-      const decoder = new TextDecoder("utf-8");
-      const cache = await Deno.readFile(resolve(cachePath));
-
-      const cacheConfigs = JSON.parse(decoder.decode(cache));
-      logger.info("Local cache loaded for InMemoryConfigStorage");
+      const cacheConfigs = await readCacheFile(cachePath);
+      if (cacheConfigs.length === 0) {
+        logger.warn(
+          "Your cache config file is empty. No Applications preloaded."
+        );
+      }
       return new InMemoryConfigStorage(cacheConfigs);
     } catch (err) {
-      logger.debug("Default cache config file not found: .app-config.json");
       logger.debug(err);
-      logger.info("No applications are preloaded.");
       return new InMemoryConfigStorage();
     }
   }

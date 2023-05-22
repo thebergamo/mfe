@@ -3,6 +3,7 @@ import { serve } from "$std/http/server.ts";
 import yargs from "$x/yargs/deno.ts";
 
 import { createApp } from "./server.ts";
+import { DenoKVConfigStorage } from "./src/adapters/deno/deno-kv-storage.ts";
 import { InMemoryConfigStorage } from "./src/server/storages/in-memory-storage.ts";
 import { getLogger, setupLogger } from "./src/utils/logger.ts";
 
@@ -21,17 +22,41 @@ const options = yargs(Deno.args)
     describe: "Read from JSON file initial AppConfigs",
     type: "string",
   })
+  .option("s", {
+    alias: "persistConfig",
+    demandOption: false,
+    default: false,
+    describe:
+      "Choose this option if you would like that the In Memory Configuration Store is persisted across restarts",
+    type: "boolean",
+  })
+  .option("p", {
+    alias: "port",
+    demandOption: false,
+    default: 8000,
+    describe: "Use specific Port to start orchestrator server",
+    type: "number",
+  })
   .parse();
 
-const inMemoryConfigStorage = await InMemoryConfigStorage.Create(options.cache);
+// const inMemoryConfigStorage = await InMemoryConfigStorage.Create(options.cache);
+
+const storagePromise = options.persist
+  ? DenoKVConfigStorage.Create
+  : InMemoryConfigStorage.Create;
+
+const storageFactory = () => storagePromise(options.cache);
 
 const app = createApp({
-  storage: inMemoryConfigStorage,
+  storageFactory,
 });
+
+app.showRoutes();
 
 const logger = getLogger("cli");
 
 await serve(app.fetch, {
+  port: options.port,
   onListen: ({ hostname, port }) =>
     logger.info(`Listening on: http://${hostname}:${port}`),
 });

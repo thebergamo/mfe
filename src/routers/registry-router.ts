@@ -1,16 +1,26 @@
-import { Hono, HonoTypes } from "../server/deps.ts";
+import { Hono, HonoContext, HonoTypes } from "../../deps.ts";
 import { AppOptions } from "../server/mod.ts";
+import { decorateStorage } from "./storage.middleware.ts";
 
-export function createRegistryRouter(
-  app: Hono<HonoTypes.Env, {}>,
-  { storage }: AppOptions
+export function createRegistryRouter<Env extends HonoTypes.Bindings>(
+  app: Hono<{ Bindings: Env }>,
+  { storageFactory }: AppOptions<Env>
 ) {
   const registryRouter = new Hono();
 
-  registryRouter.get("/", async (ctx) => {
-    return ctx.json(await storage.list());
+  registryRouter.use("*", decorateStorage<Env>(storageFactory));
+
+  registryRouter.get("/", async (ctx: HonoContext) => {
+    try {
+      const storage = ctx.get("storage");
+      return ctx.json(await storage.list());
+    } catch (err) {
+      console.log("ERR: ", err);
+      return ctx.json(err);
+    }
   });
-  registryRouter.post("/", async (ctx) => {
+  registryRouter.post("/", async (ctx: HonoContext) => {
+    const storage = ctx.get("storage");
     const appConfig = await ctx.req.json();
     const newConfig = await storage.put(appConfig);
 
@@ -18,12 +28,14 @@ export function createRegistryRouter(
 
     return ctx.json(newConfig);
   });
-  registryRouter.get(":appId", async (ctx) => {
+  registryRouter.get(":appId", async (ctx: HonoContext) => {
+    const storage = ctx.get("storage");
     const appId = ctx.req.param("appId");
 
     return ctx.json(await storage.get(appId));
   });
-  registryRouter.put(":appId", async (ctx) => {
+  registryRouter.put(":appId", async (ctx: HonoContext) => {
+    const storage = ctx.get("storage");
     const appId = ctx.req.param("appId");
     const appConfig = await ctx.req.json();
 
@@ -39,7 +51,8 @@ export function createRegistryRouter(
 
     return ctx.json(newConfig);
   });
-  registryRouter.delete(":appId", async (ctx) => {
+  registryRouter.delete(":appId", async (ctx: HonoContext) => {
+    const storage = ctx.get("storage");
     const appId = ctx.req.param("appId");
 
     await storage.delete(appId);

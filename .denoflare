@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.11/common/config.schema.json",
+  "scripts": {
+    "mfe": {
+      "path": "file:///Users/marcosbergamo/Workspace/personal/mfe/workers.ts",
+      "localIsolation": "none",
+      "bindings": {
+        "CONFIGS": {
+          "kvNamespace": "bfe2c50cbbad4b779383012007b6d82e"
+        },
+        "ARTIFACTS": {
+          "bucketName": "artifacts"
+        }
+      },
+      "localPort": 3000
+    }
+  },
+  "profiles": {
+    "default": {
+      "accountId": "99918dd92399436e34191ae76cb70f1e",
+      "apiToken": "s1bMZGOI0rw_p6QVfCuVJYGJd2KaM1E8iyyP4L1E",
+      "default": true
+    }
+  }
+}

@@ -1,3 +1,4 @@
+// entry-client.tsx
 import { MfeTemplate } from 'mfe-ui/comps'
 import { MfeContext } from 'mfe-ui/dist/components/MfeTemplate'
 import ReactDOM from 'react-dom/client'

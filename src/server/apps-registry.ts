@@ -1,8 +1,3 @@
-/*
-    - manage apps
-    - receive a storage implementation
-*/
-
 import { ResolverStrategies } from "./resolvers/strategies.ts";
 import { ConfigStorage } from "./storages/config-storage.ts";
 

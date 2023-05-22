@@ -1,8 +1,7 @@
+import { Hono, HonoTypes } from "../../deps.ts";
 import { createMfeRouter } from "../routers/mfe-router.ts";
 import { createRegistryRouter } from "../routers/registry-router.ts";
-import { AppConfig } from "./apps-registry.ts";
-import { Hono } from "./deps.ts";
-import { ConfigStorage } from "./storages/config-storage.ts";
+import { ConfigStorageFactory } from "./storages/config-storage.ts";
 
 /*
 APIs to support:
@@ -11,17 +10,17 @@ APIs to support:
 - server static?
 */
 
-export type AppOptions = {
-  storage: ConfigStorage<AppConfig>;
+export type AppOptions<Env> = {
+  storageFactory: ConfigStorageFactory<Env>;
 };
 
-export function createApp(appOptions: AppOptions) {
-  const app = new Hono();
+export function createApp<Env extends HonoTypes.Bindings>(
+  appOptions: AppOptions<Env>
+) {
+  const app = new Hono<{ Bindings: Env }>();
 
-  createRegistryRouter(app, appOptions);
-  createMfeRouter(app, appOptions);
-
-  app.showRoutes();
+  createRegistryRouter<Env>(app, appOptions);
+  createMfeRouter<Env>(app, appOptions);
 
   return app;
 }

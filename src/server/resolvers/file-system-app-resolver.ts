@@ -1,5 +1,5 @@
+import { join, relative, resolve } from "../../../deps.ts";
 import { AppResolver } from "../app-resolver.ts";
-import { resolve, join, relative } from "../deps.ts";
 import { CommonAppResolverConfig } from "./strategies.ts";
 
 export interface FileSystemAppResolverConfig extends CommonAppResolverConfig {

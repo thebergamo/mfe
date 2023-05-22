@@ -8,36 +8,29 @@
       <change beforePath="$PROJECT_DIR$/.app-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.app-config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/import_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/import_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/MobileNav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header/MobileNav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/MfeTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/MfeTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Button.story.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Introduction.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Page.story.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/Page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/code-brackets.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/colors.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/comments.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/direction.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/flow.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/plugin.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/repo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/assets/stackalt.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/src/stories/page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/tailwind.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tailwind.config.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/tsconfig.node.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/packages/mfe-ui/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/packages/mfe-ui/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cli.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/apps/mfe-1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demo/apps/mfe-1/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/apps/mfe-1/src/entry-client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/apps/mfe-1/src/entry-client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/apps/mfe-1/src/entry-server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/apps/mfe-1/src/entry-server.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/apps/mfe-1/src/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demo/apps/mfe-1/src/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/apps/mfe-1/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demo/apps/mfe-1/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deno.json" beforeDir="false" afterPath="$PROJECT_DIR$/deno.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/mfe-2/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/mfe-2/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/mfe-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/mfe-router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/registry-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/registry-router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/apps-registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/apps-registry.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/deps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/deps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/mod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/mod.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/render.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/render.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/resolvers/file-system-app-resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/resolvers/file-system-app-resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/resolvers/remote-app-resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/resolvers/remote-app-resolver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/resolvers/strategies.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/resolvers/strategies.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/storages/config-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/storages/config-storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/storages/in-memory-storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/storages/in-memory-storage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/logger.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/todo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/workers.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +42,8 @@
       <list>
         <option value="tsconfig.json" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -68,9 +61,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="OptimizeOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
-  </component>
   <component name="ProjectId" id="2OEIVZJ7S7brTMyEdXFKExyCKLy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -83,14 +73,14 @@
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "experimental",
-    "last_opened_file_path": "/Users/marcosbergamo/Workspace/personal/mfe/demo/apps/mfe-2/src/assets",
+    "last_opened_file_path": "/Users/marcosbergamo/Workspace/personal/mfe/demo/apps/mfe-1/mfe-1/server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/Users/marcosbergamo/Workspace/personal/mfe/demo/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/marcosbergamo/Workspace/personal/mfe/examples/mfe-1/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -102,12 +92,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/apps/mfe-1/mfe-1/server" />
+      <recent name="$PROJECT_DIR$/demo/apps" />
       <recent name="$PROJECT_DIR$/demo/apps/mfe-2/src/assets" />
       <recent name="$PROJECT_DIR$/demo/apps/mfe-2/src" />
       <recent name="$PROJECT_DIR$/demo/apps/mfe-1" />
-      <recent name="$PROJECT_DIR$/demo/apps/mfe-1/src/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/adapters/cloudflare" />
       <recent name="$PROJECT_DIR$/demo/apps/mfe-1/src/assets" />
       <recent name="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/Header" />
       <recent name="$PROJECT_DIR$/demo/packages/mfe-ui/src/components/ui" />
@@ -127,6 +120,8 @@
       <workItem from="1681212284598" duration="14048000" />
       <workItem from="1681557243602" duration="23883000" />
       <workItem from="1681638529182" duration="29788000" />
+      <workItem from="1682933686083" duration="16926000" />
+      <workItem from="1684328591798" duration="13352000" />
     </task>
     <servers />
   </component>

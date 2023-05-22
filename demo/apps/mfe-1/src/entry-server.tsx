@@ -1,5 +1,5 @@
 import { MfeTemplate } from 'mfe-ui/comps'
-import { MfeContext } from 'mfe-ui/dist/components/MfeTemplate'
+import type { MfeContext } from 'mfe-ui/dist/components/MfeTemplate'
 
 export { routes } from './routes'
 
