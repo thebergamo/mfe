@@ -1,20 +1,22 @@
 import {
+  createStaticHandler,
+  createStaticRouter,
+  HonoRequest,
   React,
   ReactDOMServerReadableStream,
   renderToReadableStream,
-  createStaticHandler,
-  createStaticRouter,
-  StaticRouterProvider,
   RouteObject,
-  HonoRequest,
+  StaticRouterProvider,
   twind,
   twindSheets,
 } from "../../deps.ts";
 import { AppConfig } from "./apps-registry.ts";
 
+import { importModule } from "https://deno.land/x/import/mod.ts";
+
 export async function retrieveApp(appPath: string) {
   try {
-    return await import(appPath);
+    return await importModule(appPath);
   } catch (err) {
     console.log("IMPORT ERROR", err);
     throw err;
@@ -45,7 +47,7 @@ export async function render(
   req: HonoRequest,
   serverUrl: string,
   assetsMap: Record<string, string>,
-  appConfig: AppConfig
+  appConfig: AppConfig,
 ): Promise<ReactDOMServerReadableStream | Response> {
   console.log("trying to retrieve app");
   const { default: App, routes } = await retrieveApp(serverUrl);
@@ -53,7 +55,7 @@ export async function render(
   const mfeContext = {
     assetsMap: assetsMap,
     scripts: appConfig.artifacts.filter(
-      (artifact) => artifact.endsWith("js") && artifact !== "index.js"
+      (artifact) => artifact.endsWith("js") && artifact !== "index.js",
     ),
     styles: appConfig.artifacts.filter((artifact) => artifact.endsWith("css")),
     title: appConfig.name,
