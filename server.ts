@@ -1,12 +1,12 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { DenoKVConfigStorage } from "./src/adapters/deno/deno-kv-storage.ts";
 import { createApp } from "./src/server/mod.ts";
 import { getLogger, setupLogger } from "./src/utils/logger.ts";
+import { CreateWorkerKVConfigStorage } from "./src/adapters/deno/workers-kv-storage.ts";
 
 await setupLogger();
 
 const app = createApp({
-  storageFactory: () => DenoKVConfigStorage.Create(),
+  storageFactory: () => CreateWorkerKVConfigStorage(),
 });
 
 const logger = getLogger("cli");
