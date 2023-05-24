@@ -2,7 +2,7 @@
 import { serve } from "$std/http/server.ts";
 import yargs from "$x/yargs/deno.ts";
 
-import { createApp } from "./server.ts";
+import { createApp } from "./src/server/mod.ts";
 import { DenoKVConfigStorage } from "./src/adapters/deno/deno-kv-storage.ts";
 import { InMemoryConfigStorage } from "./src/server/storages/in-memory-storage.ts";
 import { getLogger, setupLogger } from "./src/utils/logger.ts";

@@ -12,9 +12,9 @@ import {
 } from "../../deps.ts";
 import { AppConfig } from "./apps-registry.ts";
 
-export function retrieveApp(appPath: string) {
+export async function retrieveApp(appPath: string) {
   try {
-    return import(appPath);
+    return await import(appPath);
   } catch (err) {
     console.log("IMPORT ERROR", err);
     throw err;
