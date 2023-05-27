@@ -1,13 +1,13 @@
 {
   "imports": {
-    "react/jsx-runtime": "https://esm.sh/react@next&dev/jsx-runtime",
-    "react": "https://esm.sh/react@next&dev",
-    "react/": "https://esm.sh/react@next&dev/",
-    "react-dom": "https://esm.sh/react-dom@next&dev",
-    "react-dom/": "https://esm.sh/react-dom@next&dev/",
+    "react/jsx-runtime": "https://esm.sh/react@next/jsx-runtime",
+    "react": "https://esm.sh/react@next",
+    "react/": "https://esm.sh/react@next/",
+    "react-dom": "https://esm.sh/react-dom@next?target=es2021",
+    "react-dom/": "https://esm.sh/react-dom@next?target=es2021/",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.10.0&dev?deps=react@next",
-    "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&dev&deps=react@next/"
+    "react-router-dom": "https://esm.sh/react-router-dom@6.10.0?deps=react@next",
+    "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&deps=react@next/"
   }
 }
