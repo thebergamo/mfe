@@ -8,11 +8,10 @@
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "https://esm.sh/preact"
+    "jsxImportSource": "https://esm.sh/react@18.2.0&dev"
   },
   "imports": {
-    "preact/jsx-runtime": "https://cdn.skypack.dev/preact/jsx-runtime?dts",
-    "preact/jsx-dev-runtime": "https://cdn.skypack.dev/preact/jsx-dev-runtime?dts",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0&dev/jsx-runtime",
     "react": "https://esm.sh/react@18.2.0&dev",
     "react/": "https://esm.sh/react@18.2.0&dev/",
     "react-dom": "https://esm.sh/react-dom@18.2.0$dev",

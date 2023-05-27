@@ -1,3 +1,4 @@
+import "https://deno.land/std@0.177.1/dotenv/load.ts";
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { createApp } from "./src/server/mod.ts";
 import { getLogger, setupLogger } from "./src/utils/logger.ts";
