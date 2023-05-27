@@ -183,7 +183,7 @@ export async function importModule<
       throw error;
     }
 
-    const base = new URL(moduleName); //ErrorStackParser.parse(new Error())[1].fileName;
+    const base = new URL(import.meta.url); //ErrorStackParser.parse(new Error())[1].fileName;
 
     const resolved = resolveModuleSpecifier(
       moduleName,
