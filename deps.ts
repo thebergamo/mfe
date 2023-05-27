@@ -24,7 +24,7 @@ export {
   StaticRouterProvider,
 } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021&external=react/server";
 
-import "https://esm.sh/@remix-run/router@1.6.2?target=es2021&dev&external=react";
+import "https://esm.sh/@remix-run/router@1.6.2&target=es2021&dev&external=react";
 import "https://esm.sh/react-router@6.10.0&dev&target=es2021&external=react";
 
 export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021/server";
