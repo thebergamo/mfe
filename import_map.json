@@ -11,6 +11,8 @@
     "react-router-dom": "https://esm.sh/react-router-dom@6.10.0?target=es2021&deps=react-router@6.10.0&dev&external=react",
     "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&target=es2021&deps=react-router@6.10.0&dev&external=react/",
     "twind": "https://esm.sh/twind@0.16.19",
-    "twind/": "https://esm.sh/twind@0.16.19/"
+    "twind/": "https://esm.sh/twind@0.16.19/",
+    "https://esm.sh/v124/thebergamo": "https://esm.sh/v124/gh/thebergamo",
+    "https://esm.sh/v124/thebergamo/": "https://esm.sh/v124/gh/thebergamo/"
   }
 }
