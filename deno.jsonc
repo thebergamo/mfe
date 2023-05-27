@@ -7,7 +7,7 @@
     "cf": "denoflare2 serve mfe"
   },
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "react",
     "jsxImportSource": "https://esm.sh/react@18.2.0&dev"
   },
   "importMap": "./import_map.json"
