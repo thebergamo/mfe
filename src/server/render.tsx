@@ -2,7 +2,6 @@ import {
   createStaticHandler,
   createStaticRouter,
   HonoRequest,
-  React,
   ReactDOMServerReadableStream,
   renderToReadableStream,
   RouteObject,
