@@ -16,8 +16,8 @@ export { getLogger } from "https://deno.land/std@0.177.0/log/mod.ts";
 export * as log from "https://deno.land/std@0.177.0/log/mod.ts";
 
 export { React };
-export { renderToReadableStream } from "https://esm.sh/react-dom@18.2.0&target=es2021&dev/server";
-export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@18.2.0&target=es2021&dev/server";
+export { renderToReadableStream } from "https://esm.sh/react-dom@18.2.0&target=es2021&dev&external=react/server";
+export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@18.2.0&target=es2021&dev&external=react/server";
 export {
   createStaticHandler,
   createStaticRouter,
