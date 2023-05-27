@@ -7,8 +7,10 @@
     "cf": "denoflare2 serve mfe"
   },
   "compilerOptions": {
-    "jsx": "react",
-    "jsxImportSource": "https://esm.sh/react@18.2.0&dev"
+    "jsx": "react-jsx",
+    "jsxImportSource": "https://esm.sh/react@18.2.0&dev",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment"
   },
   "importMap": "./import_map.json"
 }
