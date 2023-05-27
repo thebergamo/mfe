@@ -48,7 +48,7 @@ export async function render(
   appConfig: AppConfig,
 ): Promise<ReactDOMServerReadableStream | Response> {
   console.log("trying to retrieve app");
-  const { default: App, routes } = await retrieveApp(serverUrl);
+  const { default: renderApp, routes } = await retrieveApp(serverUrl);
   console.log("RETRIEVED APP");
   const mfeContext = {
     assetsMap: assetsMap,
@@ -73,15 +73,22 @@ export async function render(
     loaderData: context.loaderData,
   };
 
-  const AppToRender = (
-    <App context={mfeContext}>
-      <StaticRouterProvider router={router} context={context} hydrate={false} />
-    </App>
-  );
+  // const AppToRender = (
+  //   <App context={mfeContext}>
+  //     <StaticRouterProvider router={router} context={context} hydrate={false} />
+  //   </App>
+  // );
 
-  const stream = await renderToReadableStream(AppToRender, {
-    bootstrapScriptContent: `window.MfeContext = ${JSON.stringify(mfeContext)}`,
-    bootstrapModules: [assetsMap[appConfig.artifacts[0]]],
+  // const stream = await renderToReadableStream(AppToRender, {
+  //   bootstrapScriptContent: `window.MfeContext = ${JSON.stringify(mfeContext)}`,
+  //   bootstrapModules: [assetsMap[appConfig.artifacts[0]]],
+  // });
+
+  const stream = await renderApp({
+    mfeContext,
+    router,
+    context,
+    bootstrapScript: assetsMap[appConfig.artifacts[0]],
   });
 
   return stream;
