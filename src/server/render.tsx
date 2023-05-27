@@ -2,6 +2,7 @@ import {
   createStaticHandler,
   createStaticRouter,
   HonoRequest,
+  importModule,
   ReactDOMServerReadableStream,
   renderToReadableStream,
   RouteObject,
@@ -10,8 +11,6 @@ import {
   twindSheets,
 } from "../../deps.ts";
 import { AppConfig } from "./apps-registry.ts";
-
-import { importModule } from "https://deno.land/x/import/mod.ts";
 
 export async function retrieveApp(appPath: string) {
   try {
