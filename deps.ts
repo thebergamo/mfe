@@ -1,4 +1,4 @@
-import React from "https://esm.sh/react@next?target=es2021";
+import React from "https://esm.sh/react@next?target=es2021&dev";
 
 export { Hono } from "https://deno.land/x/hono@v3.0.2/mod.ts";
 export { HonoRequest } from "https://deno.land/x/hono@v3.0.2/request.ts";
@@ -16,15 +16,17 @@ export { getLogger } from "https://deno.land/std@0.177.0/log/mod.ts";
 export * as log from "https://deno.land/std@0.177.0/log/mod.ts";
 
 export { React };
-export { renderToReadableStream } from "https://esm.sh/react-dom@next&target=es2021/server";
-export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@next&target=es2021/server";
+export { renderToReadableStream } from "https://esm.sh/react-dom@next&target=es2021&dev/server";
+export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@next&target=es2021&dev/server";
 export {
   createStaticHandler,
   createStaticRouter,
   StaticRouterProvider,
-} from "https://esm.sh/react-router-dom@6.10.0/server?deps=react@next";
+} from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021&external=react/server";
 
-export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0&deps=react@next&target=es2021/server";
-export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0&deps=react@next&target=es2021/dist/index.d.ts";
+import "https://esm.sh/react-router@6.10.0&dev&target=es2021&deps=react@next";
+
+export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021/server";
+export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021/dist/index.d.ts";
 export * as twind from "https://esm.sh/twind@0.16.19";
 export * as twindSheets from "https://esm.sh/twind@0.16.19/sheets";

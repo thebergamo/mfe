@@ -7,9 +7,9 @@
     "react-dom/": "https://esm.sh/react-dom@next&target=es2021&dev/",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
-    "react-router": "https://esm.sh/react-router@6.10.0?target=es2021&dev",
-    "react-router/": "https://esm.sh/react-router@6.10.0&target=es2021&dev/",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.10.0?target=es2021&deps=react-router@6.10.0&dev",
-    "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&target=es2021&deps=react-router@6.10.0&dev/"
+    "react-router": "https://esm.sh/react-router@6.10.0?target=es2021&dev&external=react",
+    "react-router/": "https://esm.sh/react-router@6.10.0&target=es2021&dev&external=react/",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.10.0?target=es2021&deps=react-router@6.10.0&dev&external=react",
+    "react-router-dom/": "https://esm.sh/react-router-dom@6.10.0&target=es2021&deps=react-router@6.10.0&dev&external=react/"
   }
 }
