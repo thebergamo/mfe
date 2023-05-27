@@ -16,15 +16,15 @@ export { getLogger } from "https://deno.land/std@0.177.0/log/mod.ts";
 export * as log from "https://deno.land/std@0.177.0/log/mod.ts";
 
 export { React };
-export { renderToReadableStream } from "https://esm.sh/react-dom@next/server?target=es2021";
-export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@next/server?target=es2021";
+export { renderToReadableStream } from "https://esm.sh/react-dom@next&target=es2021/server";
+export type { ReactDOMServerReadableStream } from "https://esm.sh/react-dom@next&target=es2021/server";
 export {
   createStaticHandler,
   createStaticRouter,
   StaticRouterProvider,
 } from "https://esm.sh/react-router-dom@6.10.0/server?deps=react@next";
 
-export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0/server?deps=react@next&target=es2021";
-export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0/dist/index.d.ts?deps=react@next&target=es2021";
+export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0&deps=react@next&target=es2021/server";
+export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0&deps=react@next&target=es2021/dist/index.d.ts";
 export * as twind from "https://esm.sh/twind@0.16.19";
 export * as twindSheets from "https://esm.sh/twind@0.16.19/sheets";
