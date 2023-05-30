@@ -17,46 +17,8 @@
       {
         "title": "MFE 1",
         "href": "/mfe-1"
-      },
-      {
-        "title": "MFE 2",
-        "href": "/mfe-2"
       }
     ],
-    "proxy": []
-  },
-  {
-    "id": "mfe-3",
-    "name": "MFE 3 - amazing",
-    "path": "mfe-3",
-    "app": "/server/entry-server.js",
-    "artifacts": ["index.js", "index.css"],
-    "resolver": {
-      "strategy": "remote",
-      "strategyConfig": {
-        "baseUrl": "http://localhost:3000/",
-        "entryServer": "/server/entry-server.js",
-        "assetsMap": "/client/assetsMap.json"
-      }
-    },
-    "navbar": [],
-    "proxy": []
-  },
-  {
-    "id": "mfe-2",
-    "name": "MFE 2 - yo",
-    "path": "mfe-2",
-    "app": "examples/mfe-2/dist/server/entry-server.js",
-    "artifacts": ["index.js", "index.css"],
-    "resolver": {
-      "strategy": "fs",
-      "strategyConfig": {
-        "baseDir": "examples/mfe-2/dist/",
-        "entryServer": "/server/entry-server.js",
-        "assetsMap": "/client/assetsMap.json"
-      }
-    },
-    "navbar": [],
     "proxy": []
   }
 ]

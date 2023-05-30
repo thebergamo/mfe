@@ -2,7 +2,6 @@ import {
   createStaticHandler,
   createStaticRouter,
   HonoRequest,
-  importModule,
   ReactDOMServerReadableStream,
   renderToReadableStream,
   RouteObject,
@@ -10,22 +9,19 @@ import {
   twind,
   twindSheets,
 } from "../../deps.ts";
+import { AppResolver } from "./app-resolver.ts";
 import { AppConfig } from "./apps-registry.ts";
-
-export async function retrieveApp(appPath: string) {
-  try {
-    return await importModule(appPath);
-  } catch (err) {
-    console.log("IMPORT ERROR", err);
-    throw err;
-  }
-}
 
 const sheet = twindSheets.virtualSheet();
 twind.setup({ sheet });
 
-async function createRouterContext(req: HonoRequest, routes: RouteObject[]) {
-  const handler = createStaticHandler(routes, { basename: "/mfe-1" });
+async function createRouterContext(
+  req: HonoRequest,
+  appId: string,
+  routes: RouteObject[],
+) {
+  // @ts-ignore
+  const handler = createStaticHandler(routes, { basename: `/${appId}` });
 
   const context = await handler.query(req.raw);
 
@@ -43,13 +39,11 @@ async function createRouterContext(req: HonoRequest, routes: RouteObject[]) {
 }
 export async function render(
   req: HonoRequest,
-  serverUrl: string,
+  resolver: AppResolver,
   assetsMap: Record<string, string>,
   appConfig: AppConfig,
 ): Promise<ReactDOMServerReadableStream | Response> {
-  console.log("trying to retrieve app");
-  const { default: renderApp, routes } = await retrieveApp(serverUrl);
-  console.log("RETRIEVED APP");
+  const { renderApp, routes } = await resolver.getServerEntry();
   const mfeContext = {
     assetsMap: assetsMap,
     scripts: appConfig.artifacts.filter(
@@ -62,31 +56,25 @@ export async function render(
     routerHydration: {},
   };
 
-  const { context, router, response } = await createRouterContext(req, routes);
+  const { context, router, response } = await createRouterContext(
+    req,
+    appConfig.id,
+    routes,
+  );
 
   if (response) {
     return response;
   }
 
-  console.log({ context });
   mfeContext.routerHydration = {
     loaderData: context.loaderData,
   };
 
-  // const AppToRender = (
-  //   <App context={mfeContext}>
-  //     <StaticRouterProvider router={router} context={context} hydrate={false} />
-  //   </App>
-  // );
-
-  // const stream = await renderToReadableStream(AppToRender, {
-  //   bootstrapScriptContent: `window.MfeContext = ${JSON.stringify(mfeContext)}`,
-  //   bootstrapModules: [assetsMap[appConfig.artifacts[0]]],
-  // });
-
   const stream = await renderApp({
     mfeContext,
+    //@ts-ignore
     router,
+    //@ts-ignore
     context,
     bootstrapScript: assetsMap[appConfig.artifacts[0]],
   });

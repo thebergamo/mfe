@@ -1,9 +1,15 @@
-import { MainNav } from '@/components/Header/MainNav'
+'use client'
+import { MainNav, MenuItem } from '@/components/Header/MainNav'
 import { MobileNav } from '@/components/Header/MobileNav'
-import { useMfeContext } from '@/hooks/useMfeContext'
+import { UserInfo } from '@/hooks/useMfeContext'
 
-export function Header() {
-  const { menu = [], user } = useMfeContext()
+type Props = {
+  menu: MenuItem[]
+  user?: UserInfo
+}
+
+export function Header(props: Props) {
+  const { menu = [], user } = props
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-primary border-b-secondary-200 dark:border-b-secondary-600 dark:bg-primary-900">
       <div className="container flex h-16 items-center p-4">

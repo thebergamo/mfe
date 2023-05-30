@@ -15,7 +15,7 @@ export type AppOptions<Env> = {
 };
 
 export function createApp<Env extends HonoTypes.Bindings>(
-  appOptions: AppOptions<Env>
+  appOptions: AppOptions<Env>,
 ) {
   const app = new Hono<{ Bindings: Env }>();
 

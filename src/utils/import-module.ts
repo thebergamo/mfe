@@ -1,4 +1,5 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.17.19/wasm.js";
+import { importWasm } from "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.11/common/import_wasm.ts";
 // import esbuildWasm from "https://deno.land/x/esbuild@v0.17.19/esbuild.wasm";
 import stripShebang from "https://esm.sh/strip-shebang@2.0.0?bundle&dev&sourcemap&pin=v99";
 
@@ -10,7 +11,7 @@ export async function importModule(modulePath: string) {
 
   if (!initialized) {
     await esbuild.initialize({
-      // wasmModule: esbuildWasm,
+      wasmModule: importWasm(import.meta.url, "./esbuild.wasm"),
       worker: false,
     });
     initialized = true;

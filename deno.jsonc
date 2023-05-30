@@ -2,15 +2,13 @@
   "lock": false,
   "tasks": {
     "test": "deno test -A",
-    "dev": "deno run -A --unstable cli.ts -s -c ./.app-config.json -p 3000",
+    "dev": "deno run -A --unstable cli.ts",
     "server": "deno run -A server.ts",
     "cf": "denoflare2 serve mfe"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "https://esm.sh/react@18.2.0&dev",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment"
+    "jsxImportSource": "https://esm.sh/react@18.2.0&dev"
   },
   "importMap": "./import_map.json"
 }

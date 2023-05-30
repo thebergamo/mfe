@@ -1,5 +1,5 @@
 import { join, relative, resolve } from "../../../deps.ts";
-import { AppResolver } from "../app-resolver.ts";
+import { AppResolver, ServerEntry } from "../app-resolver.ts";
 import { CommonAppResolverConfig } from "./strategies.ts";
 
 export interface FileSystemAppResolverConfig extends CommonAppResolverConfig {
@@ -28,5 +28,11 @@ export class FileSystemAppResolver implements AppResolver {
 
   getAssetUrl(relativePath: string): string {
     return relative(Deno.cwd(), join(this.#baseDir, "client", relativePath));
+  }
+
+  async getServerEntry(): Promise<ServerEntry> {
+    const { default: renderApp, routes } = await import(this.getServerUrl());
+
+    return { renderApp, routes };
   }
 }

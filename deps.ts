@@ -24,7 +24,8 @@ export {
   StaticRouterProvider,
 } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021&external=react/server";
 
-import "https://esm.sh/@remix-run/router@1.6.2&target=es2021&dev&external=react";
+export type { Router } from "https://esm.sh/@remix-run/router@1.6.2&target=es2021&dev&external=react";
+export type { RouteData } from "https://esm.sh/@remix-run/router@1.6.2&target=es2021&dev&external=react/dist/utils.d.ts";
 import "https://esm.sh/react-router@6.10.0&dev&target=es2021&external=react";
 
 export type { StaticHandlerContext } from "https://esm.sh/react-router-dom@6.10.0&dev&target=es2021/server";
@@ -32,4 +33,5 @@ export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0&dev&tar
 export * as twind from "https://esm.sh/twind@0.16.19";
 export * as twindSheets from "https://esm.sh/twind@0.16.19/sheets";
 
-export { importModule } from "https://deno.land/x/import/mod.ts";
+export { importModule as importModuleDeno } from "https://deno.land/x/import/mod.ts";
+export { importModule as importModuleWasm } from "./src/utils/import-module.ts";

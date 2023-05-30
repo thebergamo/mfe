@@ -18,9 +18,9 @@ export default defineConfig({
   plugins: [react(), assetsMapPlugin({ prefix: 'mfe-1' })],
   base: '/mfe-1/',
   ssr: {
-    // external: ['react', 'react-dom', 'react-router-dom', 'react/jsx-runtime'],
+    external: ['react', 'react-dom', 'react-router-dom', 'react/jsx-runtime'],
     target: 'webworker',
     format: 'esm',
-    noExternal: true,
+    // noExternal: true,
   },
 })

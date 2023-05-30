@@ -11,14 +11,14 @@ import { AppResolver } from "../server/app-resolver.ts";
 import { AppConfig } from "../server/apps-registry.ts";
 import { AppOptions } from "../server/mod.ts";
 import { render } from "../server/render.tsx";
-import { ConsoleLogger, getLogger } from "../utils/logger.ts";
+import { ConsoleLogger } from "../utils/logger.ts";
 import { decorateStorage } from "./storage.middleware.ts";
 
 const logger = new ConsoleLogger("MfeRouter"); //getLogger("MfeRouter");
 
-function getResolver(appConfig: AppConfig) {
+function getResolver(appConfig: AppConfig, runtime: HonoContext["runtime"]) {
   const { strategy, strategyConfig } = appConfig.resolver;
-  return ResolverFactory.getResolver(strategy, strategyConfig);
+  return ResolverFactory.getResolver(strategy, strategyConfig, runtime);
 }
 
 const decorateMfe = () => async (ctx: HonoContext, next: HonoTypes.Next) => {
@@ -32,7 +32,7 @@ const decorateMfe = () => async (ctx: HonoContext, next: HonoTypes.Next) => {
     const appConfig = await storage.get(mfeId);
 
     ctx.set("appConfig", appConfig);
-    ctx.set("appResolver", getResolver(appConfig));
+    ctx.set("appResolver", getResolver(appConfig, ctx.runtime));
   } catch (err) {
     logger.error(err);
     if (err.message.includes("AppConfig not found")) {
@@ -47,7 +47,7 @@ const decorateMfe = () => async (ctx: HonoContext, next: HonoTypes.Next) => {
 
 export function createMfeRouter<Env extends HonoTypes.Bindings>(
   app: Hono<{ Bindings: Env }>,
-  { storageFactory }: AppOptions<Env>
+  { storageFactory }: AppOptions<Env>,
 ) {
   const mfeRouter = new Hono<{
     Variables: { appConfig: AppConfig; appResolver: AppResolver };
@@ -66,9 +66,6 @@ function cleanPrefix([_prefix, ...asset]: string[]) {
   return asset.join("/");
 }
 
-// https://99918dd92399436e34191ae76cb70f1e.r2.cloudflarestorage.com/artifacts/mfe-1/client/assetsMap.json
-// https://99918dd92399436e34191ae76cb70f1e.r2.cloudflarestorage.com/artifacts/mfe-1/client/assetsMap.json
-
 const mfeHandler = async (ctx: HonoContext, next: HonoTypes.Next) => {
   try {
     const resolver = ctx.get("appResolver");
@@ -80,7 +77,7 @@ const mfeHandler = async (ctx: HonoContext, next: HonoTypes.Next) => {
     const assetPath = asset[0] === mfeId ? cleanPrefix(asset) : asset.join("/");
 
     const isAssetUrl = Object.entries(assetsMap).find(
-      ([_key, asset]) => asset === `${mfeId}/${assetPath}`
+      ([_key, asset]) => asset === `${mfeId}/${assetPath}`,
     );
 
     logger.debug(`Is asset url? ${Boolean(isAssetUrl)} - ${assetPath}`);
@@ -112,9 +109,9 @@ const loadMfe = async ({
   try {
     const appStream = await render(
       req,
-      resolver.getServerUrl(),
+      resolver,
       assetsMap,
-      appConfig
+      appConfig,
     );
 
     if ("ok" in appStream) {
@@ -129,7 +126,6 @@ const loadMfe = async ({
       headers: { "content-type": "text/html" },
     });
   } catch (err) {
-    console.log("ERRR", err);
     console.error(err);
     throw err;
   }
@@ -143,12 +139,12 @@ interface LoadAssetsArgs {
 const loadAssets = async (
   ctx: HonoContext,
   next: HonoTypes.Next,
-  { resolver, assetPath, mfeId }: LoadAssetsArgs
+  { resolver, assetPath, mfeId }: LoadAssetsArgs,
 ) => {
   const assetUrl = resolver.getAssetUrl(assetPath);
 
   logger.info(
-    `Asset for MFE: ${mfeId} ${JSON.stringify({ assetPath, assetUrl })}`
+    `Asset for MFE: ${mfeId} ${JSON.stringify({ assetPath, assetUrl })}`,
   );
 
   // TODO check if assetUrl is relative path, if is, serve static, if is http then redirect

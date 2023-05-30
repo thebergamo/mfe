@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header/Header'
 import { MenuItem } from '@/components/Header/MainNav'
-import { MfeProvider, UserInfo } from '@/hooks/useMfeContext'
+import { UserInfo } from '@/hooks/useMfeContext'
 
 // @ts-ignore
 import tailwindConfig from '@tailwind'
@@ -61,12 +61,10 @@ export function MfeTemplate({
       </head>
       <body>
         <main className={mfeId}>
-          <MfeProvider configurations={{ menu, user }}>
-            <section id="stage">
-              <Header />
-              <section id="root">{children}</section>
-            </section>
-          </MfeProvider>
+          <section id="stage">
+            <Header menu={menu} user={user} />
+            <section id="root">{children}</section>
+          </section>
         </main>
         {scripts?.map((script) => (
           <script type="module" src={assetsMap[script]} />

@@ -1,4 +1,3 @@
-import { MfeProvider } from '@/hooks/useMfeContext'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Header } from './Header'
 
@@ -53,14 +52,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const UnLogged: Story = {
-  decorators: [
-    (story) => <MfeProvider configurations={{ menu }}>{story()}</MfeProvider>,
-  ],
+  args: { menu },
 }
 export const Logged: Story = {
-  decorators: [
-    (story) => (
-      <MfeProvider configurations={{ menu, user }}>{story()}</MfeProvider>
-    ),
-  ],
+  args: { menu, user },
 }

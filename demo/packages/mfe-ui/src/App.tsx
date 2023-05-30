@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header menu={[]} />
       <Navigation pages={navlinks} />
       <div>
         <a href="https://vitejs.dev" target="_blank">

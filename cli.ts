@@ -1,6 +1,6 @@
 /* supports a simple CLI to start server and select provider */
-import { serve } from "$std/http/server.ts";
-import yargs from "$x/yargs/deno.ts";
+import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+import yargs from "https://deno.land/x/yargs/deno.ts";
 
 import { createApp } from "./src/server/mod.ts";
 import { DenoKVConfigStorage } from "./src/adapters/deno/deno-kv-storage.ts";

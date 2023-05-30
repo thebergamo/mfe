@@ -1,4 +1,9 @@
-import { AppResolver } from "../app-resolver.ts";
+import {
+  HonoContext,
+  importModuleDeno,
+  importModuleWasm,
+} from "../../../deps.ts";
+import { AppResolver, ServerEntry } from "../app-resolver.ts";
 import { CommonAppResolverConfig } from "./strategies.ts";
 
 export interface RemoteAppResolverConfig extends CommonAppResolverConfig {
@@ -8,10 +13,26 @@ export interface RemoteAppResolverConfig extends CommonAppResolverConfig {
 export class RemoteAppResolver implements AppResolver {
   #config: RemoteAppResolverConfig;
   #cacheHash: string;
+  #runtime: HonoContext["runtime"];
 
-  constructor(config: RemoteAppResolverConfig) {
+  constructor(
+    config: RemoteAppResolverConfig,
+    runtime: HonoContext["runtime"],
+  ) {
     this.#config = config;
     this.#cacheHash = crypto.randomUUID();
+    this.#runtime = runtime;
+  }
+  async getServerEntry(): Promise<ServerEntry> {
+    const importModule = this.#runtime === "deno"
+      ? importModuleDeno
+      : importModuleWasm;
+
+    const { default: renderApp, routes } = await importModule(
+      this.getServerUrl(),
+    );
+
+    return { renderApp, routes };
   }
 
   async getAssetMap(): Promise<Record<string, string>> {
