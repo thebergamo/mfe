@@ -14,14 +14,17 @@ export class RemoteAppResolver implements AppResolver {
   #config: RemoteAppResolverConfig;
   #cacheHash: string;
   #runtime: HonoContext["runtime"];
+  #appId: string;
 
   constructor(
     config: RemoteAppResolverConfig,
     runtime: HonoContext["runtime"],
+    appId: string,
   ) {
     this.#config = config;
     this.#cacheHash = crypto.randomUUID();
     this.#runtime = runtime;
+    this.#appId = appId;
   }
   async getServerEntry(): Promise<ServerEntry> {
     const importModule = this.#runtime === "deno"
@@ -59,7 +62,10 @@ export class RemoteAppResolver implements AppResolver {
     return `${serverUrl}${cacheString}`;
   }
   getAssetUrl(relativePath: string): string {
-    return new URL(`client/${relativePath}`, this.#config.baseUrl).href;
+    return new URL(
+      `${this.#appId}/client/${relativePath}`,
+      this.#config.baseUrl,
+    ).href;
   }
 
   checkLocalUrl() {

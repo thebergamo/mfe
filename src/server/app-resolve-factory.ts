@@ -15,6 +15,7 @@ export class ResolverFactory {
     strategy: T,
     config: ResolverStrategies[T],
     runtime: HonoContext["runtime"],
+    appId: string,
   ): AppResolver {
     switch (strategy) {
       case "fs":
@@ -23,6 +24,7 @@ export class ResolverFactory {
         return new RemoteAppResolver(
           config as RemoteAppResolverConfig,
           runtime,
+          appId,
         );
       default:
         throw new Error(`Missing implementation for ${strategy} strategy`);

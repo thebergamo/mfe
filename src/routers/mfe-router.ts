@@ -18,7 +18,12 @@ const logger = new ConsoleLogger("MfeRouter"); //getLogger("MfeRouter");
 
 function getResolver(appConfig: AppConfig, runtime: HonoContext["runtime"]) {
   const { strategy, strategyConfig } = appConfig.resolver;
-  return ResolverFactory.getResolver(strategy, strategyConfig, runtime);
+  return ResolverFactory.getResolver(
+    strategy,
+    strategyConfig,
+    runtime,
+    appConfig.id,
+  );
 }
 
 const decorateMfe = () => async (ctx: HonoContext, next: HonoTypes.Next) => {
