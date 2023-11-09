@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.11/common/config.schema.json",
+  "scripts": {
+    "mfe": {
+      "path": "file:///<PATH TO WORKERS>/workers.ts",
+      "localIsolation": "none",
+      "bindings": {
+        "CONFIGS": {
+          "kvNamespace": "<KV NAMESPACE ID>"
+        },
+        "ARTIFACTS": {
+          "bucketName": "<BUCKET NAME>"
+        }
+      },
+      "localPort": 3000
+    }
+  },
+  "profiles": {
+    "default": {
+      "accountId": "<ACCOUNT ID>",
+      "apiToken": "<API TOKEN>",
+      "default": true
+    }
+  }
+}

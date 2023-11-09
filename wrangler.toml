@@ -1,0 +1,13 @@
+name="mfe"
+main="./workers.ts"
+
+compatibility_date = "2022-11-22"
+
+kv_namespaces = [
+  { binding = "CONFIGS", id = "bfe2c50cbbad4b779383012007b6d82e" }
+]
+
+[build]
+command = "deno task build"
+cwd = "./out"
+watch_dir = "./out"
