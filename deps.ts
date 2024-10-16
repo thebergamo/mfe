@@ -33,5 +33,5 @@ export type { RouteObject } from "https://esm.sh/react-router-dom@6.10.0&dev&tar
 export * as twind from "https://esm.sh/twind@0.16.19";
 export * as twindSheets from "https://esm.sh/twind@0.16.19/sheets";
 
-export { importModule as importModuleDeno } from "https://deno.land/x/import/mod.ts";
+export { importModule as importModuleDeno } from "https://deno.land/x/import@v0.1.7/mod.ts";
 export { importModule as importModuleWasm } from "./src/utils/import-module.ts";
